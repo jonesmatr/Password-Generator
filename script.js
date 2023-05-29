@@ -13,5 +13,15 @@ function writePassword() {
 
 }
 
+// Function to generate password based on criteria
+function generatePassword() {
+  // Prompt user for password length
+  var passwordLength = parseInt(prompt("Enter the desired password length (between 8 and 128 characters);"));
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
+
+
+
