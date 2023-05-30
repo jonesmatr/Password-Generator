@@ -17,7 +17,7 @@ function writePassword() {
 function generatePassword() {
   // Prompt user for password length and converts it the entry to an integer
   var passwordLength = parseInt(prompt("Enter the desired password length (between 8 and 128 characters);"));
-}
+
 //Make sure the password length is between 8 and 128 characters and also check if the entry is a number
 while (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
   // Prompt the user to enter a valid password length if the entry is not a number or is not between 8 and 128 characters.
@@ -59,6 +59,6 @@ for (var i = 0; i < passwordLength; i++) {
 }
 //Return the generated password in the box on the screen using the #password to located the textarea in the html. 
 return password;
-
+}
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
