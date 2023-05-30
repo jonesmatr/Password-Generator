@@ -17,7 +17,7 @@ function writePassword() {
 function generatePassword() {
   // Prompt user for password length and converts it the entry to an integer
   var passwordLength = parseInt(prompt("Enter the desired password length (between 8 and 128 characters);"));
-
+}
 //Make sure the password length is between 8 and 128 characters and also check if the entry is a number
 while (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
   // Prompt the user to enter a valid password length if the entry is not a number or is not between 8 and 128 characters.
@@ -31,7 +31,18 @@ var includeUppercase = confirm("Do you want to include uppercase characters?");
 var includeNumeric = confirm("Do you want to include numeric characters?");
 var includeSpecial = confirm("Do you want to include special characters?");
 //Ask for character types to use in password and confirm those choices (each choice will be a separate prompt and confirm)
-
+while (!includeLowercase && !includeUppercase && !includeNumeric && !includeSpecial) {
+  alert("You must select at least one character type!");
+  includeLowercase = confirm("Include lowercase characters?");
+  includeUppercase = confirm("Include uppercase characters?");
+  includeNumeric = confirm("Include numeric characters?");
+  includeSpecial = confirm("Include special characters?");
+}
+//Define character array for each type
+  var lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
+  var uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var numericChars = "0123456789";
+  var specialChars = "!@#$%^&*()_-+=";
 //Create function that checks that at least one character type is selected. Use if...else statement to check if at least one character type is selected. If not, alert the user to select at least one character type and return to the beginning of the function.
 
 //If all the criteria are met, use a function that generates password based on criteria. Use for loop to generate password. Use Math.floor(Math.random() * passwordLength) to generate random password. 
