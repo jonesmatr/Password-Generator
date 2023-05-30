@@ -39,11 +39,11 @@ while (!includeLowercase && !includeUppercase && !includeNumeric && !includeSpec
   includeNumeric = confirm("Include numeric characters?");
   includeSpecial = confirm("Include special characters?");
 }
-//Define character array for each type
+//Define character array for each type. I used a regular expression for special characters because it was easier to define the array that way. Some of the characters, like the ";" were creating problems.
 var lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
 var uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numericChars = "0123456789";
-var specialChars = "!@#$%^&*()_-+=";
+var specialChars = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g;
 
 //Create a variable to store character that'll be used for the password. Each character will get amended to this variable based on the length chosen by the user. 
 var characterSet = "";
