@@ -26,14 +26,17 @@ while (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
 //Create criteria for password
 
 //Create variables for the different character types (lowercase, uppercase, numeric, and special characters)
-
+var includeLowercase = confirm("Do you want to include lowercase characters?");
+var includeUppercase = confirm("Do you want to include uppercase characters?");
+var includeNumeric = confirm("Do you want to include numeric characters?");
+var includeSpecial = confirm("Do you want to include special characters?");
 //Ask for character types to use in password and confirm those choices (each choice will be a separate prompt and confirm)
 
 //Create function that checks that at least one character type is selected. Use if...else statement to check if at least one character type is selected. If not, alert the user to select at least one character type and return to the beginning of the function.
 
 //If all the criteria are met, use a function that generates password based on criteria. Use for loop to generate password. Use Math.floor(Math.random() * passwordLength) to generate random password. 
 
-//Return the generated password in the box on the screen. 
+//Return the generated password in the box on the screen using the #password to located the textarea in the html. 
 
 
 // Add event listener to generate button
@@ -42,4 +45,4 @@ generateBtn.addEventListener("click", writePassword);
 
 
 
-
+}
