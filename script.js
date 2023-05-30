@@ -43,7 +43,13 @@ while (!includeLowercase && !includeUppercase && !includeNumeric && !includeSpec
   var uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var numericChars = "0123456789";
   var specialChars = "!@#$%^&*()_-+=";
-//Create function that checks that at least one character type is selected. Use if...else statement to check if at least one character type is selected. If not, alert the user to select at least one character type and return to the beginning of the function.
+
+//Create a variable to store character that'll be used for the password. Each character will get amended to this variable based on the length chosen by the user. 
+var characterSet = "";
+if (includeLowercase) characterSet += lowercaseChars;
+if (includeUppercase) characterSet += uppercaseChars;
+if (includeNumeric) characterSet += numericChars;
+if (includeSpecial) characterSet += specialChars;
 
 //If all the criteria are met, use a function that generates password based on criteria. Use for loop to generate password. Use Math.floor(Math.random() * passwordLength) to generate random password. 
 
