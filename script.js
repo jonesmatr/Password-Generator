@@ -1,9 +1,7 @@
 // Assignment code here
 
-
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
-
 
 // Write password to the #password input
 function writePassword() {
@@ -11,7 +9,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
@@ -65,5 +62,3 @@ for (var i = 0; i < passwordLength; i++) {
 //Return the generated password in the box on the screen using the #password to located the textarea in the html. 
 return password;
 }
-
-
