@@ -52,14 +52,13 @@ if (includeNumeric) characterSet += numericChars;
 if (includeSpecial) characterSet += specialChars;
 
 //If all the criteria are met, use a function that generates password based on criteria. Use for loop to generate password. Use Math.floor(Math.random() * passwordLength) to generate random password. 
-
+var password = "";
+for (var i = 0; i < passwordLength; i++) {
+  var randomIndex = Math.floor(Math.random() * characterSet.length);
+  password =+ characterSet[randomIndex];
+}
 //Return the generated password in the box on the screen using the #password to located the textarea in the html. 
-
+return password;
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-
-
-}
