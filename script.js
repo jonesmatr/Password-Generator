@@ -1,5 +1,3 @@
-// Assignment code here
-
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
@@ -56,6 +54,7 @@ for (var i = 0; i < characterTypes.length; i++) {
     }
     type.include = typeConfirmed;
   }
+
 //If the user does not select any of the character types they are alerted to make a selection and brought back to the first character type selection.
 if (selectedTypes.length === 0) {
     alert("You must select at least one character type!");
