@@ -38,25 +38,31 @@ var characterTypes = [
 //Create an empty array to store the selected character types
 var selectedTypes = [];
 
-//This iterates through the characterTypes array and asks the user to confirm if they want to include each character type. 
+//Create a variable to store the confirmed status of the character types
+var confirmed = false;
+
+//This iterates through the characterTypes array and asks the user to confirm if they want to include each character type. If the user does not select any of the character types they are alerted to make a selection and brought back to the first character type selection.
+while (!confirmed) {
 for (var i = 0; i < characterTypes.length; i++) {
   var type = characterTypes[i];
 
 //Ask for character types to use in password and confirm those choices (each choice will be a separate prompt and confirm)
   var confirmMessage = "Include " + type.name + " characters?";
-  var confirmed = confirm(confirmMessage);
+  var typeConfirmed = confirm(confirmMessage);
   
 //If the user confirms the character type, add it to the selectedTypes array. This adds selected character types to the selectedTypes array, which will act as a pool of characters to choose from when generating the password.
-    if (confirmed) {
+    if (typeConfirmed) {
       selectedTypes.push(type.value);
     }
-    type.include = confirmed;
+    type.include = typeConfirmed;
   }
-
+//If the user does not select any of the character types they are alerted to make a selection and brought back to the first character type selection.
 if (selectedTypes.length === 0) {
     alert("You must select at least one character type!");
-    return;
+  } else {
+    confirmed = true;
   }
+}
 
 //Combine the selected character types into a single string using the join method. This will concatenate the elements in the array together without any spaces between them.
 var characterSet = selectedTypes.join("");
