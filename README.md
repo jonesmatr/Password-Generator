@@ -47,7 +47,7 @@ This random password generator project was created by Matthew Jones. It was deve
 The following websites were also used to help with the respective section of code:
 
 - [parseInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
-- [isNaN](https://www.w3schools.com/jsref/jsref_isnan.asp), 
+- [isNaN](https://www.w3schools.com/jsref/jsref_isnan.asp) 
 - [isNaN (MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN)
 - [Password Validation (Stack Overflow)](https://stackoverflow.com/questions/50822886/password-characters-checker-in-javascript)
 - [Password Validation (w3schools)](https://www.w3schools.com/howto/howto_js_password_validation.asp)
