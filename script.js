@@ -16,6 +16,7 @@ generateBtn.addEventListener("click", writePassword);
 
 // Function to generate password based on criteria
 function generatePassword() {
+  
   // Prompt user for password length and converts it the entry to an integer
   var passwordLength = parseInt(prompt("Enter the desired password length (between 8 and 128 characters):"));
 
@@ -27,55 +28,38 @@ while (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
 
 //Use a for loop to reduce the number of prompts and confirms. This replaces the commented out code below. 
 var characterTypes = [
-  { name: "lowercase", value: "abcdefghijklmnopqrstuvwxyz", include: includeLowercase },
-  { name: "uppercase", value: "ABCDEFGHIJKLMNOPQRSTUVWXYZ", include: includeUppercase },
-  { name: "numeric", value: "0123456789", include: includeNumeric },
+  { name: "lowercase", value: "abcdefghijklmnopqrstuvwxyz", include: false },
+  { name: "uppercase", value: "ABCDEFGHIJKLMNOPQRSTUVWXYZ", include: false },
+  { name: "numeric", value: "0123456789", include: false },
   //I used a regular expression for special characters because it was easier to define the array that way. Some of the characters, like the ";" were creating problems.
-  { name: "special", value: /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g, include: includeSpecial }
+  { name: "special", value: /[!@#\$%\^\&*\(\)\_\+\-\=\[\]{};':"\\|,.<>\/\?]/g, include: false }
 ];
+
 //Create an empty array to store the selected character types
 var selectedTypes = [];
+
+//This iterates through the characterTypes array and asks the user to confirm if they want to include each character type. 
 for (var i = 0; i < characterTypes.length; i++) {
   var type = characterTypes[i];
+
 //Ask for character types to use in password and confirm those choices (each choice will be a separate prompt and confirm)
-  if (type.include) {
-    var confirmMessage = "Include " + type.name + " characters?";
-    var confirmed = confirm(confirmMessage);
-//If the user confirms the character type, add it to the selectedTypes array
+  var confirmMessage = "Include " + type.name + " characters?";
+  var confirmed = confirm(confirmMessage);
+  
+//If the user confirms the character type, add it to the selectedTypes array. This adds selected character types to the selectedTypes array, which will act as a pool of characters to choose from when generating the password.
     if (confirmed) {
       selectedTypes.push(type.value);
     }
+    type.include = confirmed;
   }
-}
-//Combine the selected character types into a single string using the join method. This takes will concatenate the elements in the array together without any spaces between them.
+
+if (selectedTypes.length === 0) {
+    alert("You must select at least one character type!");
+    return;
+  }
+
+//Combine the selected character types into a single string using the join method. This will concatenate the elements in the array together without any spaces between them.
 var characterSet = selectedTypes.join("");
-
-//Create variables for the different character types (lowercase, uppercase, numeric, and special characters)
-// var includeLowercase = confirm("Do you want to include lowercase characters?");
-// var includeUppercase = confirm("Do you want to include uppercase characters?");
-// var includeNumeric = confirm("Do you want to include numeric characters?");
-// var includeSpecial = confirm("Do you want to include special characters?");
-
-//Ask for character types to use in password and confirm those choices (each choice will be a separate prompt and confirm)
-// while (!includeLowercase && !includeUppercase && !includeNumeric && !includeSpecial) {
-//   alert("You must select at least one character type!");
-//   includeLowercase = confirm("Include lowercase characters?");
-//   includeUppercase = confirm("Include uppercase characters?");
-//   includeNumeric = confirm("Include numeric characters?");
-//   includeSpecial = confirm("Include special characters?");
-// }
-//Define character array for each type. I used a regular expression for special characters because it was easier to define the array that way. Some of the characters, like the ";" were creating problems.
-// var lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
-// var uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-// var numericChars = "0123456789";
-// var specialChars = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g;
-
-//Create a variable to store character that'll be used for the password. Each character will get amended to this variable based on the length chosen by the user. 
-var characterSet = "";
-if (includeLowercase) characterSet += lowercaseChars;
-if (includeUppercase) characterSet += uppercaseChars;
-if (includeNumeric) characterSet += numericChars;
-if (includeSpecial) characterSet += specialChars;
 
 //If all the criteria are met, use a function that generates password based on criteria. Use for loop to generate password. Use Math.floor(Math.random() * passwordLength) to generate random password. 
 var password = "";
