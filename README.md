@@ -4,7 +4,7 @@ This project is a random password generator implemented using JavaScript. It all
 
 The site can be accessed [here](https://jonesmatr.github.io/Password-Generator/).
 
-![Professional Portfolio](./assets/images/Website-Screenshot.jpg)
+![Professional Portfolio](./images/Website-Screenshot.jpg)
 ## Table of Contents
 
 - [About](#about)
